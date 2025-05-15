@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BENİ SEVİYORMUSUN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary-color: #ff3e6c;
+      --secondary-color: #8e2de2;
+      --accent-color: #ffb6c1;
+      --text-color: #2d3748;
+      --light-color: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+    
+    .romantic-bg {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    .romantic-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PHBhdGggZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgZD0iTTI1LjggODEuNWMzLjcgMjUuNCAxLjUgNTEtLjYgNzYuNnMtNC40IDUxLjIgMi43IDc1LjljNy4xIDI0LjYgMjMuNCA0Ny41IDQ1LjYgNTguNCAyMi4yIDEwLjkgNTAuNC05IDY4LjkgNy45IDE4LjQgMTYuOSAyNyA2NS42IDQ2LjcgNzUuOCAxOS42IDEwLjIgNTAuNS0xOC4xIDcxLjgtMzAuOCAyMS4zLTEyLjcgMzMuMS05LjkgNDcuMi0yLjQgMTQgNy41IDMwLjUgMTkuNiA0NS44IDE5LjYgMTUuMyAwIDI5LjUtMTIuMSA0MC44LTI4LjcgMTEuMy0xNi42IDE5LjgtMzcuNyAxMi0zOC41cy0zMS45IDIwLTUxLjEgMTkuNi0zMC42LTIxLTQxLjYtNDQuOGMtMTEuMS0yMy45LTE2LjctNTAuNiAyLjktNTMuNHM2NC40IDIyLjEgODkuOCAyNy40YzI1LjUgNS4zIDM1LjIgLTYuMSAzMS4yIC0yNC4yYy00IC0xOC4yIC0yMS43IC00NC41IC0xNS40IC02MC41IDYuMyAtMTYgMzYuNSAtMjIgNDIuOSAtMzcuOSA2LjQgLTE1LjkgLTguNSAtNDEuNyAtMzYgLTUzLjRDNDAxLjQgNDkuOSAzNjEuMyA1MS42IDMzMC44IDQxYy04Mi4xLTI4LjUtMTUwIDYxLTIxNiA1Ni4yLTMxLTIuMi01NS4xLTE3LTM0LjQgMjIuNkMxMDEuMSAxNTYuNCAxNjUuMiAxOTEuMyAxNDEgMjMxLjJjLTEzLjQgMjAuMS00MS44IDUuOC03My45LTcuNy0xOS43LTguMy00MS0xNi4yLTU0LjYtMTIuN2EzOSAzOSAwIDAgMCAtMjAgMTIuN2MtMTIuNCAxNS4yLTExLjYgMzguOC03LjkgNTkuNCAzLjcgMjAuNyAxMC40IDM5LjQgNC4xIDQxLjRDLTE3LjYgMzI2LjMgLTM1LjkgMjk1LjYgLTQxLjMgMjY1Yy01LjMgLTMwLjYgMiAtNjEuMSA3LjQgLTkxLjcgNS4zIC0zMC42IDguNiAtNjEuMyAxOS44IC04Ny40QzEwNSAtMjMuNCAyMi4xIDU2IDI1LjggODEuNXoiLz48L3N2Zz4=');
+      opacity: 0.5;
+      z-index: 0;
+    }
+    
+    .valentine-card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(255, 62, 108, 0.3);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-width: 500px;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .valentine-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 62, 108, 0.1), transparent 50%);
+      z-index: -1;
+      animation: pulse-glow 8s infinite ease-in-out;
+    }
+    
+    .valentine-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(255, 62, 108, 0.4);
+    }
+    
+    .title-style {
+      color: var(--primary-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      font-style: italic;
+    }
+    
+    .title-style::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+      animation: shine 2s infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .image-frame {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: all 0.5s ease;
+      transform-style: preserve-3d;
+    }
+    
+    .image-frame::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 62, 108, 0.2) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .image-frame:hover {
+      transform: scale(1.03) rotate(1deg);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .responsive-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: all 0.8s ease;
+    }
+    
+    .btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      backdrop-filter: blur(5px);
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
+    .btn-yes {
+      background: linear-gradient(45deg, #ff3e6c, #ff7eb3);
+      color: white;
+      box-shadow: 0 10px 20px rgba(255, 62, 108, 0.3);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+    }
+    
+    .btn-yes:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 25px rgba(255, 62, 108, 0.4);
+    }
+    
+    .btn-no {
+      background: rgba(255, 255, 255, 0.8);
+      color: #ff3e6c;
+      border: 1px solid rgba(255, 62, 108, 0.3);
+      backdrop-filter: blur(5px);
+      padding: 12px 32px;
+      border-radius: 50px;
+    }
+    
+    .btn-no:hover {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 62, 108, 0.5);
+    }
+    
+    .bounce-effect {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-20px);}
+      60% {transform: translateY(-10px);}
+    }
+    
+    .pulse-effect {
+      animation: pulse-glow 2s infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0% {transform: scale(1); opacity: 1;}
+      50% {transform: scale(1.05); opacity: 0.8;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+    
+    .floating-hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .heart {
+      position: absolute;
+      opacity: 0;
+      animation: floating-heart linear infinite;
+    }
+    
+    @keyframes floating-heart {
+      0% {transform: translateY(0) rotate(0deg); opacity: 0;}
+      10% {opacity: 0.8;}
+      100% {transform: translateY(-100vh) rotate(360deg); opacity: 0;}
+    }
+    
+    .celebration-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      display: none;
+    }
+    
+    .ribbon {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      top: -10px;
+      right: -10px;
+    }
+    
+    .ribbon::before,
+    .ribbon::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      z-index: -1;
+    }
+    
+    .ribbon::before {
+      top: 0;
+      left: 0;
+      background-color: #ff3e6c;
+    }
+    
+    .ribbon::after {
+      bottom: 0;
+      right: 0;
+      background-color: #ff3e6c;
+    }
+    
+    .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 10px 0;
+      background-color: #ff3e6c;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      font-size: 13px;
+      text-transform: uppercase;
+      text-align: center;
+      right: -25px;
+      top: 30px;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body class="romantic-bg">
+  <div class="celebration-overlay" id="celebrationOverlay"></div>
+  <div class="floating-hearts" id="floatingHearts"></div>
+  
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="valentine-card flex flex-col items-center w-full mx-auto">
+      <div class="ribbon" id="successRibbon" style="display: none;">
+        <span>EVET DEDİ!</span>
+      </div>
+      <div class="image-frame mb-8 w-full">
+        <div id="gifContainer" class="w-full h-[300px] overflow-hidden rounded-lg shadow-lg relative">
+          <!-- Başlangıç görüntüsü -->
+          <img id="imageDisplay" src="./images/image1.gif" alt="Valentine proposal" class="w-full h-[300px] object-contain" />
+          
+          <!-- Tenor GIF 1 -->
+          <div id="gif2" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="25666255" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+          
+          <!-- Tenor GIF 2 -->
+          <div id="gif3" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="21908415" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+          
+          <!-- Tenor GIF 3 -->
+          <div id="gif4" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="14608040041901332803" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+          
+          <!-- Tenor GIF 4 -->
+          <div id="gif5" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="23712052" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+          
+          <!-- Tenor GIF 5 -->
+          <div id="gif6" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="9370341840084598979" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+          
+          <!-- Tenor GIF 6 (Evet için) -->
+          <div id="gif7" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;" class="tenor-gif-embed" data-postid="9394911" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+        </div>
+      </div>
+      
+      <!-- Tenor GIF embed kaynağı -->
+      <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      
+      <h2 id="valentineQuestion" class="title-style text-5xl my-8 text-center pulse-effect">
+        BENİ SEVİYORMUSUN?
+      </h2>
+      
+      <div class="mt-4 relative flex flex-wrap gap-8 items-center justify-center w-full" id="responseButtons">
+        <button id="yesButton" class="btn btn-yes bounce-effect relative z-20 transform transition-all">
+          evettttt
+        </button>
+        <button id="noButton" class="btn btn-no transition-all transform">
+          Emin değilim...
+        </button>
+      </div>
+      
+      <div id="loveMessage" class="mt-8 opacity-0 transition-all duration-500 text-center hidden">
+        <p class="text-xl text-pink-600 font-medium">Dünyanın en mutlu insanı oldum!</p>
+        <p class="text-sm mt-2 text-gray-600">Aşk hikayemiz şimdi başlıyor...</p>
+        <p class="text-lg mt-4 font-bold text-pink-600">BENDE SENİ ÇOK SEVİYORUM ZEYNEPİM :)</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+    
+    // DOM elements
+    const elements = {
+      yesButton: document.getElementById('yesButton'),
+      noButton: document.getElementById('noButton'),
+      imageDisplay: document.getElementById('imageDisplay'),
+      valentineQuestion: document.getElementById('valentineQuestion'),
+      responseButtons: document.getElementById('responseButtons'),
+      celebrationOverlay: document.getElementById('celebrationOverlay'),
+      floatingHearts: document.getElementById('floatingHearts'),
+      loveMessage: document.getElementById('loveMessage'),
+      successRibbon: document.getElementById('successRibbon')
+    };
+    
+    // Configuration
+    const config = {
+      noClickCount: 0,
+      heartColors: ['#ff3e6c', '#ff7eb3', '#ffb6c1', '#fc5c9c'],
+      heartSizes: [15, 20, 25, 30],
+      tenorGifs: [
+        "", // 1. Başlangıç resmi - yerel dosya
+        "25666255", // 2. Hello Kitty pixel
+        "21908415", // 3. Hello Kitty kalp
+        "14608040041901332803", // 4. Üzgün Hello Kitty
+        "23712052", // 5. Üzgün My Melody
+        "9370341840084598979", // 6. Ağlayan Cinnamoroll
+        "9394911" // 7. Hello Kitty öpücük (evet derse)
+      ],
+      imagePaths: ["./images/image1.gif"],
+      noButtonTexts: [
+        "Emin değilim...", 
+        "Gerçekten seni seviyorum...", 
+        "Beni sevmiyor musun?", 
+        "Seni çok seviyorum...", 
+        "Kalbimi kırma", 
+        "Yalvarıyorum..."
+      ],
+      maxNoClicks: 5,
+      noButtonPositions: [
+        { x: 0, y: 0 },
+        { x: 50, y: -80 },
+        { x: -60, y: 70 },
+        { x: 90, y: 60 },
+        { x: -100, y: -50 }
+      ]
+    };
+    
+    // Preload images
+    function preloadImages() {
+      // Local image preloading
+      if (config.imagePaths && config.imagePaths.length > 0) {
+        config.imagePaths.forEach(path => {
+          const img = new Image();
+          img.src = path;
+        });
+      }
+      
+      // Tenor GIF'ler için bir şey yapmaya gerek yok, onlar lazım olduğunda yüklenecek
+    }
+    
+    // Generate random floating hearts
+    function createFloatingHearts() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        
+        const size = config.heartSizes[Math.floor(Math.random() * config.heartSizes.length)];
+        const color = config.heartColors[Math.floor(Math.random() * config.heartColors.length)];
+        
+        // Set heart style
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = (Math.random() * 20 + 100) + 'vh';
+        heart.style.fontSize = size + 'px';
+        heart.style.color = color;
+        heart.style.animationDuration = (Math.random() * 6 + 5) + 's';
+        heart.innerHTML = '&#10084;';
+        
+        elements.floatingHearts.appendChild(heart);
+        
+        // Remove after animation
+        setTimeout(() => {
+          if (elements.floatingHearts.contains(heart)) {
+            elements.floatingHearts.removeChild(heart);
+          }
+        }, 11000);
+      }, 300);
+    }
+    
+    // Heart burst effect around coordinates
+    function showGif(index) {
+      // Tüm GIF'leri gizle
+      for(let i = 1; i <= 7; i++) {
+        const gifElement = document.getElementById('gif' + i);
+        if (gifElement) {
+          gifElement.style.display = 'none';
+        }
+      }
+      
+      // İlk GIF için resim elementini kontrol et
+      const imageElement = document.getElementById('imageDisplay');
+      if (imageElement) {
+        imageElement.style.display = 'none';
+      }
+      
+      // Seçilen GIF'i göster
+      if (index === 1) {
+        // İlk resim için
+        if (imageElement) {
+          imageElement.style.display = 'block';
+        }
+      } else {
+        const selectedGif = document.getElementById('gif' + index);
+        if (selectedGif) {
+          selectedGif.style.display = 'block';
+          // Tenor widget'larını yükle
+          if (window.Tenor) {
+            window.Tenor.promote();
+          }
+        }
+      }
+    }
+    
+    function createEmoji(x, y, emoji, count = 10) {
+      for (let i = 0; i < count; i++) {
+        const element = document.createElement('div');
+        element.innerHTML = emoji;
+        element.style.position = 'fixed';
+        element.style.left = `${x}px`;
+        element.style.top = `${y}px`;
+        element.style.color = config.heartColors[Math.floor(Math.random() * config.heartColors.length)];
+        element.style.fontSize = Math.floor(Math.random() * 15 + 10) + 'px';
+        element.style.pointerEvents = 'none';
+        element.style.zIndex = '100';
+        element.style.opacity = '0.9';
+        element.style.transform = 'translateZ(0)';
+        element.style.animation = `heartBurst ${Math.random() * 2 + 1}s forwards`;
+        
+        document.body.appendChild(element);
+        
+        // Apply random animation
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 100 + 50;
+        const duration = Math.random() * 2 + 1;
+        
+        element.animate([
+          { transform: 'translate(0, 0) rotate(0deg) scale(0.5)', offset: 0 },
+          { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) rotate(${Math.random() * 360}deg) scale(${Math.random() + 0.5})`, opacity: Math.random() * 0.7 + 0.3, offset: 0.8 },
+          { transform: `translate(${Math.cos(angle) * distance * 1.1}px, ${Math.sin(angle) * distance * 1.1}px) rotate(${Math.random() * 360 + 180}deg) scale(0)`, opacity: 0, offset: 1 }
+        ], {
+          duration: duration * 1000,
+          easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+          fill: 'forwards'
+        });
+        
+        // Remove element after animation
+        setTimeout(() => {
+          if (document.body.contains(element)) {
+            document.body.removeChild(element);
+          }
+        }, duration * 1000);
+      }
+    }
+    
+    // Run celebration effects
+    function runCelebration() {
+      // Show ribbon
+      elements.successRibbon.style.display = 'block';
+      
+      // Shoot confetti from multiple angles with staggered timing
+      const duration = 8 * 1000;
+      const animationEnd = Date.now() + duration;
+      
+      // Show love message
+      elements.loveMessage.classList.remove('hidden');
+      setTimeout(() => {
+        elements.loveMessage.style.opacity = '1';
+      }, 300);
+      
+      // Display celebration overlay
+      elements.celebrationOverlay.style.display = 'block';
+      
+      // Create confetti shower
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+        
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+        
+        // Calculate particle count based on time left
+        const particleCount = 50 * (timeLeft / duration);
+        
+        // Confetti from different angles
+        const origins = [
+          { x: 0.1, y: 0.5 },   // Left
+          { x: 0.9, y: 0.5 },   // Right
+          { x: 0.5, y: 0.1 },   // Top
+          { x: Math.random(), y: 0 }  // Random top
+        ];
+        
+        // Launch confetti from different positions
+        origins.forEach((origin, index) => {
+          setTimeout(() => {
+            confetti({
+              particleCount: particleCount * 0.5,
+              origin: origin,
+              colors: ['#ff3e6c', '#ff7eb3', '#ffb6c1', '#fc5c9c', '#ffffff'],
+              shapes: ['circle', 'square'],
+              ticks: 200,
+              scalar: Math.random() + 0.5,
+              disableForReducedMotion: true
+            });
+          }, index * 150); // Stagger the confetti launches
+        });
+        
+      }, 400);
+      
+      // Son GIF'i göster
+      showGif(7);
+      
+      // GIF konteyner animasyonu
+      setTimeout(() => {
+        const gifContainer = document.getElementById('gifContainer');
+        gifContainer.style.transform = 'scale(1.05)';
+        gifContainer.animate([
+          { filter: 'brightness(1) contrast(1)', transform: 'scale(1)' },
+          { filter: 'brightness(1.2) contrast(1.1)', transform: 'scale(1.05)' },
+          { filter: 'brightness(1) contrast(1)', transform: 'scale(1.02)' }
+        ], {
+          duration: 2000,
+          iterations: 1,
+          fill: 'forwards',
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        });
+      }, 500);
+      
+      // Change title with animation
+      elements.valentineQuestion.style.opacity = '0';
+      setTimeout(() => {
+        elements.valentineQuestion.innerHTML = '<span>Evet Dediğin İçin Teşekkür Ederim!</span>';
+        // Zeynep mesajını göster
+        setTimeout(() => {
+          elements.loveMessage.querySelector('.text-lg').classList.add('animate-pulse');
+        }, 1500);
+        elements.valentineQuestion.style.opacity = '1';
+        elements.valentineQuestion.style.transform = 'scale(1.1)';
+        elements.valentineQuestion.animate([
+          { textShadow: '0 0 10px rgba(255, 62, 108, 0.5)' },
+          { textShadow: '0 0 20px rgba(255, 62, 108, 0.8)' },
+          { textShadow: '0 0 10px rgba(255, 62, 108, 0.5)' }
+        ], {
+          duration: 2000,
+          iterations: Infinity,
+          easing: 'ease-in-out'
+        });
+      }, 600);
+      
+      // Create continuous heart bursts
+      let burstCount = 0;
+      const burstInterval = setInterval(() => {
+        if (burstCount >= 10) {
+          clearInterval(burstInterval);
+          return;
+        }
+        
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight * 0.6; // Keep in upper portion
+        createEmoji(x, y, '❤️', 8);
+        burstCount++;
+      }, 800);
+    }
+    
+    // Event Listeners
+    elements.noButton.addEventListener('click', function() {
+      if (config.noClickCount < config.maxNoClicks) {
+        // Increment counter
+        config.noClickCount++;
+        
+        // Sad face emoji burst from No button
+        const rect = elements.noButton.getBoundingClientRect();
+        createEmoji(rect.left + rect.width/2, rect.top + rect.height/2, '😢', 5);
+        
+        // İlgili GIF'i göster (index 2'den başlıyor)
+        showGif(config.noClickCount + 1);
+        
+        // Make Yes button more attractive
+        elements.yesButton.style.transform = 'scale(1.1)';
+        elements.yesButton.style.boxShadow = `0 10px 25px rgba(255, 62, 108, ${0.3 + config.noClickCount * 0.1})`;
+        elements.yesButton.style.animation = 'pulse-glow 1s infinite';
+        
+        // Update No button text and appearance
+        if (config.noClickCount < config.noButtonTexts.length) {
+          elements.noButton.textContent = config.noButtonTexts[config.noClickCount];
+          
+          // Make no button gradually smaller and less visible
+          elements.noButton.style.opacity = `${1 - config.noClickCount * 0.15}`;
+          elements.noButton.style.transform = `scale(${1 - config.noClickCount * 0.1})`;
+          
+          // Move the no button to a different position
+          const position = config.noButtonPositions[config.noClickCount];
+          setTimeout(() => {
+            elements.noButton.style.position = 'relative';
+            elements.noButton.style.transform = `translate(${position.x}px, ${position.y}px) scale(${1 - config.noClickCount * 0.1})`;
+          }, 100);
+        }
+        
+        // Make valentine question more pleading
+        const phrases = [
+          "Lütfen beni seviyor musun?",
+          "Gerçekten beni seviyor musun?",
+          "Seni çok seviyorum, sen de beni seviyor musun?",
+          "Beni sevsen dünyanın en mutlu insanı olurum!",
+          "Beni seviyor musun lütfen?",
+          "Lütfen beni sevdiğini söyle?"
+        ];
+        
+        if (config.noClickCount < phrases.length) {
+          // Animate the question change
+          elements.valentineQuestion.style.opacity = '0.5';
+          elements.valentineQuestion.style.transform = 'translateY(-5px)';
+          
+          setTimeout(() => {
+            elements.valentineQuestion.textContent = phrases[config.noClickCount];
+            elements.valentineQuestion.style.opacity = '1';
+            elements.valentineQuestion.style.transform = 'translateY(0)';
+          }, 300);
+        }
+      }
+    });
+    
+    elements.yesButton.addEventListener('click', function() {
+      // Hide buttons with nice transition
+      elements.responseButtons.style.opacity = '0';
+      elements.responseButtons.style.transform = 'translateY(20px)';
+      
+      // Son GIF'i göster ("Evet" için 7. GIF)
+      showGif(7);
+      
+      setTimeout(() => {
+        elements.responseButtons.style.display = 'none';
+        // Start celebration
+        runCelebration();
+      }, 500);
+      
+      // Create immediate heart burst and rotate button
+      const rect = elements.yesButton.getBoundingClientRect();
+      createEmoji(rect.left + rect.width/2, rect.top + rect.height/2, '❤️', 15);
+      
+      // Add rotation animation to Yes button
+      elements.yesButton.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(360deg)' }
+      ], {
+        duration: 1000,
+        iterations: 1,
+        easing: 'ease-in-out'
+      });
+    });
+    
+    // Add dynamic hover effect to No button - make it run away
+    elements.noButton.addEventListener('mouseover', function(e) {
+      if (config.noClickCount > 0) {
+        const moveX = (Math.random() - 0.5) * 200;
+        const moveY = (Math.random() - 0.5) * 200;
+        
+        // Make sure button doesn't go off-screen
+        const rect = this.getBoundingClientRect();
+        const parentRect = responseButtons.getBoundingClientRect();
+        
+        const maxX = parentRect.width - rect.width;
+        const maxY = parentRect.height - rect.height;
+        
+        const safeX = Math.min(Math.max(moveX, -parentRect.width/2), maxX/2);
+        const safeY = Math.min(Math.max(moveY, -parentRect.height/2), maxY/2);
+        
+        this.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        this.style.transform = `translate(${safeX}px, ${safeY}px) scale(${1 - config.noClickCount * 0.1})`;
+        
+        // Create a small sad emoji
+        createEmoji(e.clientX, e.clientY, '😕', 2);
+      }
+    });
+    
+    // Make Yes button more attractive when mouse approaches
+    document.addEventListener('mousemove', function(e) {
+      if (!elements.yesButton.matches(':hover')) {
+        const rect = elements.yesButton.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.sqrt(Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2));
+        
+        // Attraction effect - button grows as cursor gets closer
+        if (distance < 150) {
+          const scale = 1 + (150 - distance) / 500;
+          const glow = (150 - distance) / 150;
+          elements.yesButton.style.transform = `scale(${scale})`;
+          elements.yesButton.style.boxShadow = `0 10px 30px rgba(255, 62, 108, ${0.3 + glow * 0.5})`;
+        } else {
+          elements.yesButton.style.transform = 'scale(1)';
+          elements.yesButton.style.boxShadow = '0 10px 20px rgba(255, 62, 108, 0.3)';
+        }
+      }
+    });
+    
+    // Initialize
+    function init() {
+      preloadImages();
+      createFloatingHearts();
+      
+      // İlk GIF'i göster
+      showGif(1);
+      
+      // Add subtle animation to Valentine card
+      document.querySelector('.valentine-card').animate(
+        [
+          { transform: 'translateY(0)' },
+          { transform: 'translateY(-5px)' },
+          { transform: 'translateY(0)' }
+        ],
+        {
+          duration: 6000,
+          iterations: Infinity,
+          easing: 'ease-in-out'
+        }
+      );
+    }
+    
+    // Start the application
+    init();
+    
+  </script>
+</body>
+</html>
